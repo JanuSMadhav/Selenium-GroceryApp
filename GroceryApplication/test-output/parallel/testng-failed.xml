@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="methods" name="Failed suite [parallel]" guice-stage="DEVELOPMENT">
+  <parameter name="browser" value="chrome"/>
+  <listeners>
+    <listener class-name="reportGeneration.Listener"/>
+  </listeners>
+  <test thread-count="5" parallel="methods" name="ChromeTest(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="testscript.LoginTest">
+        <methods>
+          <include name="driverQuit"/>
+          <include name="verifyLoginWithValidUsernameAndInvalidPassword"/>
+          <include name="verifyLoginWithInvalidUsernameAndValidPassword"/>
+          <include name="verifyLoginWithInvalidUsernameAndInvalidPassword" invocation-numbers="0"/>
+          <include name="verifyLoginWithValidCredentials"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- testscript.LoginTest -->
+      <class name="testscript.HomeTest">
+        <methods>
+          <include name="driverQuit"/>
+          <include name="verifyLogoutfunctionality"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- testscript.HomeTest -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+  <test thread-count="5" parallel="methods" name="FirefoxTest(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="testscript.LoginTest">
+        <methods>
+          <include name="driverQuit"/>
+          <include name="verifyLoginWithInvalidUsernameAndValidPassword"/>
+          <include name="verifyLoginWithInvalidUsernameAndInvalidPassword"/>
+          <include name="verifyLoginWithValidCredentials"/>
+          <include name="closeBrowser"/>
+          <include name="initializeBrowser"/>
+        </methods>
+      </class> <!-- testscript.LoginTest -->
+      <class name="testscript.HomeTest">
+        <methods>
+          <include name="driverQuit"/>
+          <include name="verifyLogoutfunctionality"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- testscript.HomeTest -->
+    </classes>
+  </test> <!-- FirefoxTest(failed) -->
+</suite> <!-- Failed suite [parallel] -->
